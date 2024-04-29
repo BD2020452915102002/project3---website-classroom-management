@@ -10,7 +10,7 @@ const authControllers = {
 
             // create user
             const newUser = await new User({
-                username:req.body.username,
+                username: req.body.username,
                 email: req.body.email,
                 password: hashed
             })
@@ -22,20 +22,20 @@ const authControllers = {
             res.status(resStatus.INTERNAL_SERVER_ERROR).json(err)
         }
     },
-    loginUser: async (req, res) =>{
-        try{
-            const user = await User.findOne({ username: req.body.username })
+    loginUser: async (req, res) => {
+        try {
+            const user = await User.findOne({username: req.body.username})
             const validPassword = await bcrypt.compare(
                 req.body.password,
                 user.password
             )
-            if(!validPassword){
+            if (!validPassword) {
                 res.status(resStatus.NOT_FOUND).json("Wrong password")
             }
             if (validPassword && user) {
                 res.status(resStatus.OK).json(user)
             }
-        }catch (err){
+        } catch (err) {
             res.status(resStatus.INTERNAL_SERVER_ERROR).json(err)
         }
     }

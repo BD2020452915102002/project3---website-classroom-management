@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const cookieParser = require("cookie-parser")
 
 const authRoute = require("./routes/auth")
+const userRoute = require("./routes/user")
 
 dotenv.config()
 
@@ -29,6 +30,7 @@ app.use(express.json())
 
 //routes
 app.use("/auth",authRoute)
+app.use("/user",userRoute)
 
 app.listen(8000,()=>{
     console.log("Sever is running")
