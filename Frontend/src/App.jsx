@@ -1,9 +1,9 @@
+import {useScrollToTop} from "./hooks/use-scroll-to-top.js";
+import Router from "./routes/sections.jsx";
 
 export default function App() {
-
+    useScrollToTop()
     return (
-        <h1 className="text-3xl font-bold underline text-red-600">
-            Hello world!
-        </h1>
+        <Router/>
     )
 }

@@ -46,12 +46,15 @@ const authControllers = {
     loginUser: async (req, res) => {
         try {
             const user = await User.findOne({username: req.body.username})
+            if(!user) {
+                return res.status(resStatus.NOT_FOUND).json("Wrong password")
+            }
             const validPassword = await bcrypt.compare(
                 req.body.password,
                 user.password
             )
             if (!validPassword) {
-                res.status(resStatus.NOT_FOUND).json("Wrong password")
+               return  res.status(resStatus.NOT_FOUND).json("Wrong password")
             }
             if (validPassword && user) {
                 const accessToken = authControllers.generateAccessToken(user)
