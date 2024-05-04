@@ -2,7 +2,9 @@ import React from 'react';
 
 function Statistic(props) {
     return (
-        <div></div>
+        <div>
+            aaaaaaaaaaaaaaaaaa
+        </div>
     );
 }
 
