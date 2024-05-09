@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo_hust from '../assets/image/logo-hust.png'
-import {Link, Route, Routes} from "react-router-dom";
+import {Link, Outlet, Route, Routes} from "react-router-dom";
 import News from "./student/News.jsx";
 import Nav from "../layouts/Nav.jsx";
 import Statistic from "./student/Statistic.jsx";
@@ -163,10 +163,7 @@ function Home() {
             </Drawer>
             <Main open={open} className={'!bg-[#F4F4F4]'}>
                 <DrawerHeader/>
-                <Routes>
-                    <Route path={'/news'} element={<News/>}/>
-                    <Route path={'/statistic'} element={<Statistic/>}/>
-                </Routes>
+                <Outlet/>
             </Main>
         </Box>
     );

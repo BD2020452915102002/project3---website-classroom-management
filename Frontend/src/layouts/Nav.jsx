@@ -17,11 +17,11 @@ function Nav() {
             <List>
                 {
                     [
-                        {title: 'Tin tức chung', icon: <NewspaperIcon/>, path:'/news'},
-                        {title: 'Thống kê học tập', icon: <EqualizerIcon/>,path:'/statistic'},
-                        {title: 'Đăng ký lớp học', icon: <AppRegistrationIcon/>,path:'/news'},
-                        {title: 'Thời khoá biểu', icon: <CalendarMonthIcon/>,path:'/statistic'},
-                        {title: 'Kết nối phòng đào tạo', icon: <SchoolIcon/>,path:'/news'},
+                        {title: 'Tin tức chung', icon: <NewspaperIcon/>, path:'/student/news'},
+                        {title: 'Thống kê học tập', icon: <EqualizerIcon/>,path:'/student/statistic'},
+                        {title: 'Đăng ký lớp học', icon: <AppRegistrationIcon/>,path:'/student/news'},
+                        {title: 'Thời khoá biểu', icon: <CalendarMonthIcon/>,path:'/student/statistic'},
+                        {title: 'Kết nối phòng đào tạo', icon: <SchoolIcon/>,path:'/student/news'},
                     ].map((e, i) => (
                         <Link to={e.path} key={i}>
                             <ListItem disablePadding>
