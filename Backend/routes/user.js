@@ -11,7 +11,7 @@ router.post("/createUser",userControllers.createUser)
 // update user
 router.put("/:id/updateUser",userControllers.updateUser)
 //delete user
-router.delete("/delete/:id",middlewareController.verifyTokenAndAdmin,userControllers.deleteUser)
+router.delete("/:id/delete",middlewareController.verifyTokenAndAdmin,userControllers.deleteUser)
 
 
 module.exports = router

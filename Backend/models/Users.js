@@ -76,4 +76,11 @@ module.exports = class Users {
         );
         return result;
     };
+    static deleteUser = async (id) => {
+        const [result] = await promisePool.query(
+            "DELETE FROM users WHERE id = ?;",
+            [id]
+        );
+        return result;
+    };
 }

@@ -85,22 +85,25 @@ const userControllers = {
             if (update.affectedRows == 1) {
                 delete final_data.password
                 res.status(status.OK).json({data: final_data, id: req.params.id})
-            } else {res.status(status.BAD_REQUEST).json({message: "Update failed"})}
+            } else {
+                res.status(status.BAD_REQUEST).json({message: "Update failed"})
+            }
         } catch (e) {
             console.log(e)
             res.status(status.NOT_FOUND).json(e)
         }
     },
     deleteUser: async (req, res) => {
-        // try {
-        //     const user = await User.findByIdAndDelete(req.params.id);
-        //     res.status(status.OK).json({
-        //         message: "User deleted successfully",
-        //         user: user
-        //     })
-        // } catch (e) {
-        //     res.status(status.INTERNAL_SERVER_ERROR).json(e)
-        // }
+        try {
+            const user = await Users.deleteUser(req.params.id);
+            if (user.affectedRows == 1) {
+                res.status(status.OK).json({
+                    message: "User deleted successfully"
+                })
+            } else {res.status(status.BAD_REQUEST).json({message: "User deleted failed"})}
+        } catch (e) {
+            res.status(status.INTERNAL_SERVER_ERROR).json(e)
+        }
     }
 
 
